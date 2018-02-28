@@ -1,0 +1,18 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .Register-card{
+      width: 40rem;
+      padding-left: 30%;
+  }
+  .button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
