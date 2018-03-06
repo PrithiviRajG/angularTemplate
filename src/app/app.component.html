@@ -1,114 +1,26 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>OEE Calculation</span>
-  </mat-toolbar-row>
-</mat-toolbar>
-
-
-<mat-accordion class="example-headers-align">
-  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Enter OEE Data
-      </mat-panel-title>
-
-    </mat-expansion-panel-header>
-    <form (ngSubmit)="onSubmit()" #oeeDataForm="ngForm">
-      <div class="container">
-
-        <mat-form-field>
-          <input type="number" required matInput placeholder="Shift Length (Minutes)" [(ngModel)]="oeeData.shiftLength" name="shiftLength"
-            #shiftLength="ngModel">
-          <mat-error [hidden]="shiftLength.valid || shiftLength.pristine">Shift Length is required</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input type="number" required matInput placeholder="Number of Shifts" [(ngModel)]="oeeData.numOfShifts" name="numOfShifts"
-            #numOfShifts="ngModel">
-          <mat-error [hidden]="numOfShifts.valid || numOfShifts.pristine">Number of Shifts</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input type="number" required matInput placeholder="Short breaks per shift (Minutes)" [(ngModel)]="oeeData.shortBreaksPerShift"
-            name="shortBreaksPerShift" #shortBreaksPerShift="ngModel">
-          <mat-error [hidden]="shortBreaksPerShift.valid || shortBreaksPerShift.pristine">Short breaks per shift is required</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input type="number" required matInput placeholder="Meal breaks per shift (Minutes)" [(ngModel)]="oeeData.mealBreakPerShift"
-            name="mealBreakPerShift" #mealBreakPerShift="ngModel">
-          <mat-error [hidden]="mealBreakPerShift.valid || mealBreakPerShift.pristine">Meal breaks per shift is required</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input type="number" required matInput placeholder="Down Time (Minutes)" [(ngModel)]="oeeData.downTime" name="downTime" #downTime="ngModel">
-          <mat-error [hidden]="downTime.valid || downTime.pristine">Down Time is required</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input type="number" required matInput placeholder="Ideal Rate (Pieces per hour)" [(ngModel)]="oeeData.idealRate" name="idealRate"
-            #idealRate="ngModel">
-          <mat-error [hidden]="idealRate.valid || idealRate.pristine">Shift Length is required</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input type="number" required matInput placeholder="Total Pieces Produced per Shift" [(ngModel)]="oeeData.totalPiecesProducedPerShift"
-            name="totalPiecesProducedPerShift" #totalPiecesProducedPerShift="ngModel">
-          <mat-error [hidden]="totalPiecesProducedPerShift.valid || totalPiecesProducedPerShift.pristine">Total Pieces Produced per Shift</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input type="number" required matInput placeholder="Rejected Pieces per Shift" [(ngModel)]="oeeData.rejectedPiecesPerShift"
-            name="rejectedPiecesPerShift" #rejectedPiecesPerShift="ngModel">
-          <mat-error [hidden]="rejectedPiecesPerShift.valid || rejectedPiecesPerShift.pristine">Rejected Pieces per Shift is required</mat-error>
-        </mat-form-field>
-
-      </div>
-      <mat-action-row>
-        <button [disabled]="!oeeDataForm.form.valid" (click)="oeeDataSubmit()" mat-raised-button color="primary">Submit</button>
-        <button mat-raised-button color="warn">Cancel</button>
-      </mat-action-row>
-
-
-    </form>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        OEE Variable Calculation
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <mat-list>
-      <mat-list-item> Planned production time (minutes) : {{oeeVariable.plannedProdTime}} </mat-list-item>
-      <mat-list-item> Operating time (minutes) : {{oeeVariable.operatingTime}} </mat-list-item>
-      <mat-list-item> Good pieces per shift : {{oeeVariable.goodPiecesPerShift}} </mat-list-item>
-    </mat-list>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          OEE Factors Calculation
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-  
-      <mat-list>
-        <mat-list-item> Availability : {{oeeFactors.availability*100}}% </mat-list-item>
-        <mat-list-item> Performance : {{oeeFactors.performance*100}}% </mat-list-item>
-        <mat-list-item> Quality : {{oeeFactors.quality*100}}% </mat-list-item>
-        <mat-list-item> <b> Overall OEE : {{oeeFactors.overallOEE*100}}% </b> </mat-list-item>
-      </mat-list>
-
-      <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>
-
-    </mat-expansion-panel>
-</mat-accordion>
+<mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <a routerLink="/OEE-Data-Center" routerLinkActive="active"><span>OEE Summary</span></a>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <a routerLink="/" routerLinkActive="active"><span>Add OEE</span></a>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+      
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <span>{{pageName}}</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      
+      
+<router-outlet></router-outlet>

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { OeeDataComponent } from './oeeData/oeeData.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   MatButtonModule, MatCheckboxModule,
@@ -12,11 +13,19 @@ import {
 
 import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule }        from './app-routing.module';
+import {AddOeeDataComponent} from './addOeeData/addOeeData.component';
+
+
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [    
+    AppComponent,
+    OeeDataComponent,
+    AddOeeDataComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     ChartsModule,
     FormsModule,
@@ -27,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule
   ],
   providers: [],
+  exports:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
