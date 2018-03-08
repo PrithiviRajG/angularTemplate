@@ -17,6 +17,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule }        from './app-routing.module';
 import {AddOeeDataComponent} from './addOeeData/addOeeData.component';
 
+import {DataService} from './providers/sharedService';
+
 
 @NgModule({
   declarations: [    
@@ -35,7 +37,7 @@ import {AddOeeDataComponent} from './addOeeData/addOeeData.component';
     MatSelectModule, MatInputModule, BrowserAnimationsModule,
     MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule
   ],
-  providers: [],
+  providers: [DataService],
   exports:[],
   bootstrap: [AppComponent]
 })

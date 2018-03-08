@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-
+import { DataService } from "./providers/sharedService";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,9 @@ import { Component, ViewChild } from '@angular/core';
 export class AppComponent {
   pageName : any;
 
-  childToParent(page){
-    console.log("child to parent ");
-    this.pageName=page;
+  constructor(private data: DataService){
+    this.data.currentpageName.subscribe(message => this.pageName = message)
   }
+
+  
 }

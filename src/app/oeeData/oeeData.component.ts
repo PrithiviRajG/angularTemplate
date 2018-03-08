@@ -1,4 +1,5 @@
 import { Component,Output,EventEmitter } from '@angular/core';
+import { DataService } from "../providers/sharedService";
 
 @Component({
     selector: 'OEE-Data',
@@ -8,8 +9,8 @@ import { Component,Output,EventEmitter } from '@angular/core';
   export class OeeDataComponent {
     @Output() childToParent = new EventEmitter<String>();
     pageName : String = "OEE Data Summary";
-    constructor(){
-      this.childToParent.emit(this.pageName);
+    constructor(private data: DataService){
+      this.data.changePageName(this.pageName);
     }
 
     

@@ -5,6 +5,8 @@ import {OEEvariable} from '../transferObjects/oeeVariables';
 
 import { Chart } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
+
+import { DataService } from "../providers/sharedService";
 @Component({
   selector: 'Add-OEE-Data',
   templateUrl: './addOeeData.component.html',
@@ -21,8 +23,8 @@ export class AddOeeDataComponent {
   oeeFactors: OEEfactors;
   oeeVariable: OEEvariable;
   dataArr: any;
-  constructor() {
-    this.childToParent.emit(this.pageName);
+  constructor(private data: DataService) {
+    this.data.changePageName(this.pageName);
     this.oeeData = new OEEdata(482, 52, 20, 20, 0, 70, 382, 5);
     this.oeeFactors = new OEEfactors();
     this.oeeVariable = new OEEvariable();
