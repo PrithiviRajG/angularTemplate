@@ -15,7 +15,7 @@ import { DataService } from "../providers/sharedService";
 export class AddOeeDataComponent {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
-  @Output() childToParent = new EventEmitter<String>();
+  
   title = 'app';
   pageName : String = "Add OEE Data";
 

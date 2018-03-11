@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   MatButtonModule, MatCheckboxModule,
   MatOptionModule, MatSelectModule, MatInputModule,
-  MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule
+  MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule, MatTableModule
 } from '@angular/material';
 
 import { ChartsModule } from 'ng2-charts';
@@ -18,7 +18,7 @@ import { AppRoutingModule }        from './app-routing.module';
 import {AddOeeDataComponent} from './addOeeData/addOeeData.component';
 
 import {DataService} from './providers/sharedService';
-
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [    
@@ -35,10 +35,14 @@ import {DataService} from './providers/sharedService';
     MatFormFieldModule,
     MatButtonModule, MatCheckboxModule, MatOptionModule,
     MatSelectModule, MatInputModule, BrowserAnimationsModule,
-    MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule
+    MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule, MatTableModule
   ],
   providers: [DataService],
   exports:[],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+ }
