@@ -25,7 +25,26 @@ export class AddOeeDataComponent {
   dataArr: any;
   constructor(private data: DataService) {
     this.data.changePageName(this.pageName);
-    this.oeeData = new OEEdata(482, 52, 20, 20, 0, 70, 382, 5);
+    //this.oeeData = new OEEdata(482, 52, 20, 20, 0, 70, 382, 5);
+    this.oeeData=
+      { date: new Date('2019,1,1'),
+        machineNumber: 100,
+        numOfShifts: 3,
+        shiftLength: 744,
+        teaBreak: 46.50,
+        lunchBreak: 46.50,
+        machineDownTime : 3.00,
+        idealRunRate : 185.7,
+        totalProductionQty : 117698,
+        rejectionQty : 20,
+        plannedProductionTime : 651.00,
+        operatingTime : 648.00,
+        okQty : 117678,
+        availability : 99.54,
+        performance : 97.81,
+        quality : 99.98,
+        oee : 97.34
+    };
     this.oeeFactors = new OEEfactors();
     this.oeeVariable = new OEEvariable();
   }

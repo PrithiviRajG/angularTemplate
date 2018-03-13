@@ -1,27 +1,20 @@
-export class OEEdata {
+export interface OEEdata {
+  date: Date;
+  machineNumber: number;
+  numOfShifts: number;
+  shiftLength: number;
+  teaBreak: number;
+  lunchBreak: number;
+  machineDownTime : number;
+  idealRunRate : number;
+  totalProductionQty : number;
+  rejectionQty : number;
+  plannedProductionTime : number;
+  operatingTime : number;
+  okQty : number;
+  availability : number;
+  performance : number;
+  quality : number;
+  oee : number;
 
-    /*constructor(
-    ) {  }*/
-
-    constructor(shiftLength, numOfShifts, shortBreaksPerShift, mealBreakPerShift, downTime,idealRate, totalPiecesProducedPerShift,
-    rejectedPiecesPerShift){
-      this.shiftLength=shiftLength;
-      this.numOfShifts=numOfShifts;
-      this.shortBreaksPerShift=shortBreaksPerShift;
-      this.mealBreakPerShift=mealBreakPerShift;
-      this.downTime=downTime;
-      this.idealRate=idealRate;
-      this.totalPiecesProducedPerShift=totalPiecesProducedPerShift;
-      this.rejectedPiecesPerShift=rejectedPiecesPerShift;
-    }
-    public shiftLength: number;
-    public numOfShifts: number;
-    public shortBreaksPerShift : number;
-    public mealBreakPerShift : number;
-    public downTime : number;
-    public idealRate : number;
-    public totalPiecesProducedPerShift : number;
-    public rejectedPiecesPerShift : number;
-  }
-  
-  
+}

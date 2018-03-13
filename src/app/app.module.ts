@@ -20,6 +20,10 @@ import {AddOeeDataComponent} from './addOeeData/addOeeData.component';
 import {DataService} from './providers/sharedService';
 import { Router } from '@angular/router';
 
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 @NgModule({
   declarations: [    
     AppComponent,
@@ -27,6 +31,8 @@ import { Router } from '@angular/router';
     AddOeeDataComponent
   ],
   imports: [
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
     BrowserModule,
     ChartsModule,
@@ -46,3 +52,4 @@ export class AppModule {
   constructor(router: Router) {
     console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
  }
+}

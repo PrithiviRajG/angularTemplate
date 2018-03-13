@@ -1,6 +1,7 @@
 import { Component,Output,EventEmitter } from '@angular/core';
 import { DataService } from "../providers/sharedService";
 import {MatTableDataSource} from '@angular/material';
+import {OEEdata} from "../transferObjects/oeeData";
 @Component({
     selector: 'OEE-Data',
     templateUrl: './oeeData.component.html',
@@ -20,26 +21,7 @@ import {MatTableDataSource} from '@angular/material';
       
   }
 
-  export interface OEEdata {
-    date: Date;
-    machineNumber: number;
-    numOfShifts: number;
-    shiftLength: number;
-    teaBreak: number;
-    lunchBreak: number;
-    machineDownTime : number;
-    idealRunRate : number;
-    totalProductionQty : number;
-    rejectionQty : number;
-    plannedProductionTime : number;
-    operatingTime : number;
-    okQty : number;
-    availability : number;
-    performance : number;
-    quality : number;
-    oee : number;
-
-  }
+  
   
   const ELEMENT_DATA: OEEdata[] = [
     { date: new Date('2019,1,1'),
