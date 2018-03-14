@@ -35,7 +35,7 @@ export class AddOeeDataComponent {
         lunchBreak: 46.50,
         machineDownTime : 3.00,
         idealRunRate : 185.7,
-        totalProductionQty : 117698,
+        totalProductionQty : 200,
         rejectionQty : 20,
         plannedProductionTime : 651.00,
         operatingTime : 648.00,
@@ -56,17 +56,17 @@ export class AddOeeDataComponent {
   }
 
   oeeDataSubmit() {
-    this.oeeVariable.plannedProdTime = (this.oeeData.shiftLength - (this.oeeData.shortBreaksPerShift + this.oeeData.mealBreakPerShift)) * this.oeeData.numOfShifts;
-    this.oeeVariable.operatingTime = this.oeeVariable.plannedProdTime - (this.oeeData.downTime * this.oeeData.numOfShifts);
-    this.oeeVariable.goodPiecesPerShift = this.oeeData.totalPiecesProducedPerShift - this.oeeData.rejectedPiecesPerShift;
+    this.oeeVariable.plannedProdTime = (this.oeeData.shiftLength - (this.oeeData.teaBreak + this.oeeData.lunchBreak)) * this.oeeData.numOfShifts;
+    this.oeeVariable.operatingTime = this.oeeVariable.plannedProdTime - (this.oeeData.machineDownTime * this.oeeData.numOfShifts);
+    this.oeeVariable.goodPiecesPerShift = this.oeeData.totalProductionQty - this.oeeData.rejectionQty;
     this.calculateOverallFactors();
     this.step++;
   }
 
   calculateOverallFactors() {
     this.oeeFactors.availability = this.oeeVariable.operatingTime / this.oeeVariable.plannedProdTime;
-    this.oeeFactors.performance = this.oeeData.totalPiecesProducedPerShift * (this.oeeData.idealRate / this.oeeVariable.operatingTime);
-    this.oeeFactors.quality = this.oeeVariable.goodPiecesPerShift / this.oeeData.totalPiecesProducedPerShift;
+    this.oeeFactors.performance = this.oeeData.totalProductionQty * (this.oeeData.idealRunRate / this.oeeVariable.operatingTime);
+    this.oeeFactors.quality = this.oeeVariable.goodPiecesPerShift / this.oeeData.totalProductionQty;
     this.oeeFactors.overallOEE = this.oeeFactors.availability * this.oeeFactors.performance * this.oeeFactors.quality;
     this.dataArr = {
       data: [this.oeeFactors.availability * 100, this.oeeFactors.performance * 100, this.oeeFactors.quality * 100, this.oeeFactors.overallOEE * 100],

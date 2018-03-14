@@ -9,6 +9,14 @@
           </mat-expansion-panel-header>
           <form (ngSubmit)="onSubmit()" #oeeDataForm="ngForm">
             <div class="container">
+
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="oeeData.date" name="oeeDate"
+                    #oeeDate="ngModel" disabled>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker  disabled="false" #picker></mat-datepicker>
+                    <mat-error [hidden]="oeeDate.valid || oeeDate.pristine">Date is required</mat-error>
+                  </mat-form-field>
       
               <mat-form-field>
                 <input type="number" required matInput placeholder="Shift Length (Minutes)" [(ngModel)]="oeeData.shiftLength" name="shiftLength"
@@ -23,36 +31,36 @@
               </mat-form-field>
       
               <mat-form-field>
-                <input type="number" required matInput placeholder="Short breaks per shift (Minutes)" [(ngModel)]="oeeData.shortBreaksPerShift"
+                <input type="number" required matInput placeholder="Short breaks per shift (Minutes)" [(ngModel)]="oeeData.teaBreak"
                   name="shortBreaksPerShift" #shortBreaksPerShift="ngModel">
                 <mat-error [hidden]="shortBreaksPerShift.valid || shortBreaksPerShift.pristine">Short breaks per shift is required</mat-error>
               </mat-form-field>
       
               <mat-form-field>
-                <input type="number" required matInput placeholder="Meal breaks per shift (Minutes)" [(ngModel)]="oeeData.mealBreakPerShift"
+                <input type="number" required matInput placeholder="Meal breaks per shift (Minutes)" [(ngModel)]="oeeData.lunchBreak"
                   name="mealBreakPerShift" #mealBreakPerShift="ngModel">
                 <mat-error [hidden]="mealBreakPerShift.valid || mealBreakPerShift.pristine">Meal breaks per shift is required</mat-error>
               </mat-form-field>
       
               <mat-form-field>
-                <input type="number" required matInput placeholder="Down Time (Minutes)" [(ngModel)]="oeeData.downTime" name="downTime" #downTime="ngModel">
+                <input type="number" required matInput placeholder="Down Time (Minutes)" [(ngModel)]="oeeData.machineDownTime" name="downTime" #downTime="ngModel">
                 <mat-error [hidden]="downTime.valid || downTime.pristine">Down Time is required</mat-error>
               </mat-form-field>
       
               <mat-form-field>
-                <input type="number" required matInput placeholder="Ideal Rate (Pieces per hour)" [(ngModel)]="oeeData.idealRate" name="idealRate"
+                <input type="number" required matInput placeholder="Ideal Rate (Pieces per hour)" [(ngModel)]="oeeData.idealRunRate" name="idealRate"
                   #idealRate="ngModel">
                 <mat-error [hidden]="idealRate.valid || idealRate.pristine">Shift Length is required</mat-error>
               </mat-form-field>
       
               <mat-form-field>
-                <input type="number" required matInput placeholder="Total Pieces Produced per Shift" [(ngModel)]="oeeData.totalPiecesProducedPerShift"
+                <input type="number" required matInput placeholder="Total Pieces Produced per Shift" [(ngModel)]="oeeData.totalProductionQty"
                   name="totalPiecesProducedPerShift" #totalPiecesProducedPerShift="ngModel">
                 <mat-error [hidden]="totalPiecesProducedPerShift.valid || totalPiecesProducedPerShift.pristine">Total Pieces Produced per Shift</mat-error>
               </mat-form-field>
       
               <mat-form-field>
-                <input type="number" required matInput placeholder="Rejected Pieces per Shift" [(ngModel)]="oeeData.rejectedPiecesPerShift"
+                <input type="number" required matInput placeholder="Rejected Pieces per Shift" [(ngModel)]="oeeData.rejectionQty"
                   name="rejectedPiecesPerShift" #rejectedPiecesPerShift="ngModel">
                 <mat-error [hidden]="rejectedPiecesPerShift.valid || rejectedPiecesPerShift.pristine">Rejected Pieces per Shift is required</mat-error>
               </mat-form-field>

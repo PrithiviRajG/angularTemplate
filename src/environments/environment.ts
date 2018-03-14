@@ -12,5 +12,5 @@ export const environment = {
     projectId: "oeecalculator-f75c4",
     storageBucket: "oeecalculator-f75c4.appspot.com",
     messagingSenderId: "189791049308"
-  };
+  }
 };

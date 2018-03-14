@@ -1,11 +1,11 @@
 <mat-menu #menu="matMenu">
         <button mat-menu-item>
           <mat-icon>dialpad</mat-icon>
-          <a routerLink="/OEE-Data-Center" routerLinkActive="active">OEE Summary</a>
+          <span (click)="navigateToOeeSummary()">OEE Summary</span>
         </button>
-        <button mat-menu-item disabled>
+        <button mat-menu-item>
           <mat-icon>voicemail</mat-icon>
-          <a routerLink="" routerLinkActive="active"><span>Add OEE</span></a>
+          <span (click)="navigateToAddOee()">Add OEE</span>
         </button>
         <button mat-menu-item>
           <mat-icon>notifications_off</mat-icon>

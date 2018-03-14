@@ -8,7 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   MatButtonModule, MatCheckboxModule,
   MatOptionModule, MatSelectModule, MatInputModule,
-  MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule, MatTableModule
+  MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule, MatTableModule,
+  MatNativeDateModule, MatDatepickerModule 
 } from '@angular/material';
 
 import { ChartsModule } from 'ng2-charts';
@@ -41,7 +42,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     MatFormFieldModule,
     MatButtonModule, MatCheckboxModule, MatOptionModule,
     MatSelectModule, MatInputModule, BrowserAnimationsModule,
-    MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule, MatTableModule
+    MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule, MatTableModule,
+    MatNativeDateModule, MatDatepickerModule 
   ],
   providers: [DataService],
   exports:[],
