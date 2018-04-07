@@ -1,108 +1,115 @@
 <div class="example-container mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource">
+
+    <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+
+    <mat-table  #table [dataSource]="dataSource" matSort>
   
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
   
       <!-- Date Column -->
       <ng-container matColumnDef="date">
-        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Date </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
       </ng-container>
   
       <!-- Machine Number Column -->
       <ng-container matColumnDef="machineNumber">
-        <mat-header-cell *matHeaderCellDef> Machine Number </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Machine Number </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.machineNumber}} </mat-cell>
       </ng-container>
   
       <!-- Number of Shifts Column -->
       <ng-container matColumnDef="numOfShifts">
-        <mat-header-cell *matHeaderCellDef> Number of Shifts </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Number of Shifts </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.numOfShifts}} </mat-cell>
       </ng-container>
   
       <!-- Shift Length Column -->
       <ng-container matColumnDef="shiftLength">
-        <mat-header-cell *matHeaderCellDef> Shift Length </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Shift Length </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.shiftLength}} </mat-cell>
       </ng-container>
 
       <!-- Tea Break Column -->
       <ng-container matColumnDef="teaBreak">
-        <mat-header-cell *matHeaderCellDef> Tea Break </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Tea Break </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.teaBreak}} </mat-cell>
       </ng-container>
 
       <!-- Lunch Break Column -->
       <ng-container matColumnDef="lunchBreak">
-        <mat-header-cell *matHeaderCellDef> Lunch Break </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Lunch Break </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.lunchBreak}} </mat-cell>
       </ng-container>
 
       <!-- Machine down time Column -->
       <ng-container matColumnDef="machineDownTime">
-        <mat-header-cell *matHeaderCellDef> Machine down time </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Machine down time </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.machineDownTime}} </mat-cell>
       </ng-container>
 
       <!-- Ideal run rate Column -->
       <ng-container matColumnDef="idealRunRate">
-        <mat-header-cell *matHeaderCellDef> Ideal run rate </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Ideal run rate </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.idealRunRate}} </mat-cell>
       </ng-container>
 
       <!-- Total production quantity Column -->
       <ng-container matColumnDef="totalProductionQty">
-        <mat-header-cell *matHeaderCellDef> Total production quantity </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Total production quantity </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.totalProductionQty}} </mat-cell>
       </ng-container>
 
       <!-- Rejection quantity Column -->
       <ng-container matColumnDef="rejectionQty">
-        <mat-header-cell *matHeaderCellDef> Rejection quantity </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Rejection quantity </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.rejectionQty}} </mat-cell>
       </ng-container>
 
       <!-- Planned production time Column -->
       <ng-container matColumnDef="plannedProductionTime">
-        <mat-header-cell *matHeaderCellDef> Planned production time </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Planned production time </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.plannedProductionTime}} </mat-cell>
       </ng-container>
 
       <!-- Operating time Column -->
       <ng-container matColumnDef="operatingTime">
-        <mat-header-cell *matHeaderCellDef> Operating time </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Operating time </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.operatingTime}} </mat-cell>
       </ng-container>
 
       <!-- Ok Quantity Column -->
       <ng-container matColumnDef="okQty">
-        <mat-header-cell *matHeaderCellDef> Ok Quantity </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Ok Quantity </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.okQty}} </mat-cell>
       </ng-container>
 
       <!-- Availability Column -->
       <ng-container matColumnDef="availability">
-        <mat-header-cell *matHeaderCellDef> Availability </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Availability </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.availability}} </mat-cell>
       </ng-container>
 
       <!-- Performance Column -->
       <ng-container matColumnDef="performance">
-        <mat-header-cell *matHeaderCellDef> Performance </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Performance </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.performance}} </mat-cell>
       </ng-container>
 
       <!-- Quality Column -->
       <ng-container matColumnDef="quality">
-        <mat-header-cell *matHeaderCellDef> Quality </mat-header-cell>
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Quality </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.quality}} </mat-cell>
       </ng-container>
 
       <!-- OEE Column -->
       <ng-container matColumnDef="oee">
-        <mat-header-cell *matHeaderCellDef> OEE </mat-header-cell>
+        <mat-header-cell mat-sort-header mat-sort-header *matHeaderCellDef> OEE </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.oee}} </mat-cell>
       </ng-container>
 

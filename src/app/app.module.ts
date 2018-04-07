@@ -9,7 +9,7 @@ import {
   MatButtonModule, MatCheckboxModule,
   MatOptionModule, MatSelectModule, MatInputModule,
   MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule, MatTableModule,
-  MatNativeDateModule, MatDatepickerModule 
+  MatNativeDateModule, MatDatepickerModule, MatSortModule 
 } from '@angular/material';
 
 import { ChartsModule } from 'ng2-charts';
@@ -43,7 +43,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     MatButtonModule, MatCheckboxModule, MatOptionModule,
     MatSelectModule, MatInputModule, BrowserAnimationsModule,
     MatMenuModule, MatIconModule, MatToolbarModule, MatCardModule, MatExpansionModule, MatListModule, MatTableModule,
-    MatNativeDateModule, MatDatepickerModule 
+    MatNativeDateModule, MatDatepickerModule, MatSortModule 
   ],
   providers: [DataService],
   exports:[],

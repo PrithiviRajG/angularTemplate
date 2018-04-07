@@ -1,5 +1,5 @@
 export interface OEEdata {
-  date: Date;
+  date: string;
   machineNumber: number;
   numOfShifts: number;
   shiftLength: number;
