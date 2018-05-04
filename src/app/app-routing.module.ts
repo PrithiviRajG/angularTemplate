@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { OeeDataComponent } from './oeeData/oeeData.component';
 import {AddOeeDataComponent} from './addOeeData/addOeeData.component';
 const appRoutes: Routes = [
-    { path: 'OEE-Data-Center', component: OeeDataComponent },
-    { path: 'Add-OEE-Data', component: AddOeeDataComponent },
-    { path: '',   redirectTo: '/Add-OEE-Data', pathMatch: 'full' }
+    { path: '/angularTemplate/OEE-Data-Center', component: OeeDataComponent },
+    { path: '/angularTemplate/Add-OEE-Data', component: AddOeeDataComponent },
+    { path: '',   redirectTo: '/angularTemplate/Add-OEE-Data', pathMatch: 'full' }
   ];
 
 @NgModule({
